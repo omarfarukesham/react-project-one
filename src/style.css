@@ -9,6 +9,9 @@ body {
 
 main {
     padding: 36px;
+    width: 100vw;
+    height: 100vh;
+
 }
 
 .header {
@@ -57,4 +60,15 @@ main {
     color: white;
     border: none;
     cursor: pointer;
+}
+.img--set{
+    margin-top: 2%;
+    align-items: center;
+    text-align: center;
+}
+.img--set img{
+    height: 160px;
+    width: 200px;
+    border: 1px solid black;
+    align-items: center;
 }
