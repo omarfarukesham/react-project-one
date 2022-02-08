@@ -3,13 +3,22 @@ import memesData from "../memesData.js"
 
 export default function Memo() {
     
- const [memeImage , setMemeImage] = React.useState("")
+    const [meme, setMeme] = React.useState({
+        topText: "",
+        bottomText: "",
+        randomImage: "http://i.imgflip.com/1bij.jpg" 
+    })
+    const [allMemeImages, setAllMemeImages] = React.useState(memesData)
 
     function getMemeImage() {
-        const memesArray = memesData.data.memes
+        const memesArray = allMemeImages.data.memes
         const randomNumber = Math.floor(Math.random() * memesArray.length)
+        const url = memesArray[randomNumber].url
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            randomImage: url
+        }))
         
-        setMemeImage(memesArray[randomNumber].url)
     }
     // function getName(){
     //     const getMemeName = memesData.data.memes
@@ -50,7 +59,7 @@ export default function Memo() {
                 <button type="button"  onClick={add}>(+)</button>
                 <button type="button"  onClick={sub}>(-)</button>
                 <h1>{count}</h1>               */}
-                <img src={memeImage} width="250px" alt="Dynamic image"  />
+                <img src={meme.randomImage} width="250px" alt="Dynamic image"  />
                 {/* <button type="button" onClick={getName}></button>
                 <h1>{memeImage}</h1> */}
                 
